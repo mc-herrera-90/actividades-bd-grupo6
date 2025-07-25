@@ -1,3 +1,5 @@
-**/*.md
+**/**/*.md
 !**/README.md
+!actividad-*
+**/**/*.csss
 .vscode
