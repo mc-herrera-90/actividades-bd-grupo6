@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS rverde_ecommerce;
 USE rverde_ecommerce;
 
+DROP TABLE IF EXISTS usuarios;
 CREATE TABLE IF NOT EXISTS usuarios (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(100) NOT NULL,
@@ -11,23 +12,26 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE categorias;
 CREATE TABLE IF NOT EXISTS categorias (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(150) NOT NULL,
-	descripcion TEXT
+	descripcion VARCHAR(255)
 );
 
+DROP TABLE IF EXISTS productos;
 CREATE TABLE IF NOT EXISTS productos (
-	id BIGINT AUTO_INCREMENT NOT NULL,
+	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(100) NOT NULL,
-	descripcion TEXT,
+	descripcion VARCHAR(255),
 	precio INT NOT NULL,
 	stock INT NOT NULL,
-	image_url VARCHAR(100),
+	image_url VARCHAR(200),
 	categoria_id BIGINT,
 	FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 );
 
+DROP TABLE IF EXISTS carrito;
 CREATE TABLE IF NOT EXISTS carrito (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	usuario_id BIGINT NOT NULL,
