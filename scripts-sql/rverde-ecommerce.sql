@@ -1,9 +1,15 @@
-DROP DATABASE IF EXISTS rverde_ecommerce;
-CREATE DATABASE IF NOT EXISTS rverde_ecommerce;
-USE rverde_ecommerce;
+-- DROP DATABASE IF EXISTS rverde_ecommerce;
+-- CREATE DATABASE rverde_ecommerce;
+-- USE rverde_ecommerce;
+DROP TABLE IF EXISTS orden_detalles;
+DROP TABLE IF EXISTS ordenes;
+DROP TABLE IF EXISTS direcciones;
+DROP TABLE IF EXISTS carrito;
+DROP TABLE IF EXISTS productos;
+DROP TABLE IF EXISTS categorias;
+DROP TABLE IF EXISTS usuarios;
 
 -- USUARIOS
-DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(100) NOT NULL,
@@ -15,7 +21,6 @@ CREATE TABLE usuarios (
 );
 
 -- CATEGORIAS
-DROP TABLE IF EXISTS categorias;
 CREATE TABLE categorias (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(150) NOT NULL,
@@ -23,7 +28,6 @@ CREATE TABLE categorias (
 );
 
 -- PRODUCTOS
-DROP TABLE IF EXISTS productos;
 CREATE TABLE productos (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(100) NOT NULL,
@@ -36,7 +40,6 @@ CREATE TABLE productos (
 );
 
 -- CARRITO
-DROP TABLE IF EXISTS carrito;
 CREATE TABLE carrito (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	usuario_id BIGINT NOT NULL,
@@ -48,7 +51,6 @@ CREATE TABLE carrito (
 );
 
 -- DIRECCIONES (para envíos personalizados)
-DROP TABLE IF EXISTS direcciones;
 CREATE TABLE direcciones (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	usuario_id BIGINT NOT NULL,
@@ -61,7 +63,6 @@ CREATE TABLE direcciones (
 );
 
 -- ORDENES (pedidos)
-DROP TABLE IF EXISTS ordenes;
 CREATE TABLE ordenes (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	usuario_id BIGINT NOT NULL,
@@ -74,7 +75,6 @@ CREATE TABLE ordenes (
 );
 
 -- DETALLES DE ORDEN
-DROP TABLE IF EXISTS orden_detalles;
 CREATE TABLE orden_detalles (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	orden_id BIGINT NOT NULL,
