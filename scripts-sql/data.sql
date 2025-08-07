@@ -1,11 +1,11 @@
-INSERT INTO categorias (nombre, descripcion) VALUES
+INSERT INTO categoria (nombre, descripcion) VALUES
 ('Maceteros', 'Contenedores y macetas para todo tipo de plantas'),
 ('Herramientas de Jardín', 'Herramientas básicas y avanzadas para jardinería'),
 ('Sustratos y Fertilizantes', 'Tierra, abono y nutrientes para plantas'),
 ('Semillas y Cultivos', 'Semillas y kits para iniciar cultivos en casa'),
 ('Accesorios Ecológicos', 'Artículos complementarios para el cuidado sustentable');
 
-INSERT INTO productos (nombre, descripcion, precio, stock, image_url, categoria_id) VALUES
+INSERT INTO producto (nombre, descripcion, precio, stock, image_url, categoria_id) VALUES
 -- Maceteros (id: 1)
 ('Macetero de barro clásico', 'Macetero artesanal ideal para plantas medianas.', 6900, 20, 'https://example.com/macetero-barro.jpg', 1),
 ('Macetero colgante de coco', 'Fabricado con fibra de coco y cuerda de yute.', 7500, 15, 'https://example.com/macetero-coco.jpg', 1),
