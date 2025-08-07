@@ -36,7 +36,7 @@ CREATE TABLE producto (
 	stock INT NOT NULL,
 	image_url VARCHAR(200),
 	categoria_id BIGINT,
-	FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+	FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
 -- CARRITO
@@ -47,7 +47,7 @@ CREATE TABLE carrito (
 	cantidad INT NOT NULL,
 	fecha_agregado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-	FOREIGN KEY (producto_id) REFERENCES productos(id)
+	FOREIGN KEY (producto_id) REFERENCES producto(id)
 );
 
 -- DIRECCIONES (para envíos personalizados)
@@ -59,7 +59,7 @@ CREATE TABLE direccion (
 	region VARCHAR(100),
 	codigo_postal VARCHAR(20),
 	pais VARCHAR(100),
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+	FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 -- ORDENES (pedidos)
@@ -71,7 +71,7 @@ CREATE TABLE orden (
 	estado VARCHAR(50) DEFAULT 'pendiente', -- pagado, enviado, entregado, cancelado
 	direccion_envio VARCHAR(255),
 	metodo_pago VARCHAR(50),
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+	FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 -- DETALLES DE ORDEN
