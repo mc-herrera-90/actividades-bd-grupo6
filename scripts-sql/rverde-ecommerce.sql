@@ -1,16 +1,16 @@
 -- DROP DATABASE IF EXISTS rverde_ecommerce;
 -- CREATE DATABASE rverde_ecommerce;
 -- USE rverde_ecommerce;
-DROP TABLE IF EXISTS orden_detalles;
-DROP TABLE IF EXISTS ordenes;
-DROP TABLE IF EXISTS direcciones;
+DROP TABLE IF EXISTS orden_detalle;
+DROP TABLE IF EXISTS orden;
+DROP TABLE IF EXISTS direccion;
 DROP TABLE IF EXISTS carrito;
-DROP TABLE IF EXISTS productos;
-DROP TABLE IF EXISTS categorias;
-DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS producto;
+DROP TABLE IF EXISTS categoria;
+DROP TABLE IF EXISTS usuario;
 
 -- USUARIOS
-CREATE TABLE usuarios (
+CREATE TABLE usuario (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(100) NOT NULL,
 	correo VARCHAR(100) UNIQUE NOT NULL,
@@ -21,14 +21,14 @@ CREATE TABLE usuarios (
 );
 
 -- CATEGORIAS
-CREATE TABLE categorias (
+CREATE TABLE categoria (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(150) NOT NULL,
 	descripcion VARCHAR(255)
 );
 
 -- PRODUCTOS
-CREATE TABLE productos (
+CREATE TABLE producto (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(100) NOT NULL,
 	descripcion VARCHAR(255),
@@ -51,7 +51,7 @@ CREATE TABLE carrito (
 );
 
 -- DIRECCIONES (para envíos personalizados)
-CREATE TABLE direcciones (
+CREATE TABLE direccion (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	usuario_id BIGINT NOT NULL,
 	direccion VARCHAR(255) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE direcciones (
 );
 
 -- ORDENES (pedidos)
-CREATE TABLE ordenes (
+CREATE TABLE orden (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	usuario_id BIGINT NOT NULL,
 	fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -75,7 +75,7 @@ CREATE TABLE ordenes (
 );
 
 -- DETALLES DE ORDEN
-CREATE TABLE orden_detalles (
+CREATE TABLE orden_detalle (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	orden_id BIGINT NOT NULL,
 	producto_id BIGINT NOT NULL,
