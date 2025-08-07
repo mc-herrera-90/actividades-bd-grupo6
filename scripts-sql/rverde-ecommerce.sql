@@ -46,7 +46,7 @@ CREATE TABLE carrito (
 	producto_id BIGINT NOT NULL,
 	cantidad INT NOT NULL,
 	fecha_agregado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+	FOREIGN KEY (usuario_id) REFERENCES usuario(id),
 	FOREIGN KEY (producto_id) REFERENCES producto(id)
 );
 
@@ -81,6 +81,6 @@ CREATE TABLE orden_detalle (
 	producto_id BIGINT NOT NULL,
 	cantidad INT NOT NULL,
 	precio_unitario INT NOT NULL,
-	FOREIGN KEY (orden_id) REFERENCES ordenes(id),
-	FOREIGN KEY (producto_id) REFERENCES productos(id)
+	FOREIGN KEY (orden_id) REFERENCES orden(id),
+	FOREIGN KEY (producto_id) REFERENCES producto(id)
 );
